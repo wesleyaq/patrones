@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Patron Observer</title>
+</head>
+<body>
+
+
+  <script>
+    function Lector(nombre) {
+      this.nombre = nombre;
+    }
+
+    Lector.prototype.leer = function(noticia) {
+      console.log(this.nombre + " recibe " + noticia)
+    }
+
+    var Blog = function(nombre) {
+      this.nombre = nombre;
+      this.suscriptores = [];
+    }
+
+    Blog.prototype.publicar = function(noticia) {
+      var long = this.suscriptores.length,
+      i;
+
+      for(i=0; i < long; i++) {
+        this.suscriptores[i].leer(noticia);
+      }
+    }
+
+    Blog.prototype.suscribir = function(lector) {
+      this.suscriptores.push(lector);
+    }
+
+    Blog.prototype.anularSuscripcion = function(lector) {
+      var long = this.suscriptores.length,
+      i, cual;
+
+      for(i=0; i < long; i++) {
+        if (this.suscriptores[i].nombre === lector.nombre) {
+          cual = i;
+        }
+      }
+      this.suscriptores.splice(cual, 1);
+    }
+
+
+    var blogPedro = new Blog('Pedro BD');
+
+    var santiago = new Lector('Santiago');
+    var manuel = new Lector('Manuel');
+    var rosa = new Lector('Rosa');
+
+    // Suscribimos los lectores
+    blogPedro.suscribir(santiago);
+    blogPedro.suscribir(manuel);
+    blogPedro.suscribir(rosa);
+
+    blogPedro.publicar('Nueva versión de mongo!!');
+    blogPedro.anularSuscripcion(manuel);
+    blogPedro.publicar('Documentación nueva!!');
+  </script>
+</body>
+</html>
