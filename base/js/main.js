@@ -217,7 +217,7 @@ app.components.people = (function ($, doc, win, undefined) {
   var persons = 'peoples',
   $el    = $.js('peopleModule'),
   $btn   = $el.find(js('personAdd')),
-  $input = $el.find(js('name')),
+  $input = $el.find(js('personName')),
   $ul    = $el.find(js('people')),
   tmpl   = $el.find(js('peopleTmpl')).html(),
 
