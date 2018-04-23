@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, serif;
+}
+
+.people ul {
+  list-style: none;
+  padding: 0;
+}
+
+.people li {
+  display: inline-block;
+  vertical-align: top;
+  padding: 5px;
+  background-color: gray;
+  color: white;
+  line-height: 1;
+}
+
+.people span {
+  vertical-align: middle;
+  font-size: 13px;
+  font-style: normal;
+}
+
+.people i {
+  vertical-align: middle;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: normal;
+  margin-left: 5px;
+  cursor: pointer;
+}

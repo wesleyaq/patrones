@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Módulo People</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+  
+  <style>
+    body {
+      font-family: Arial, serif;
+    }
+    #people ul {
+      list-style: none;
+      padding: 0;
+    }
+    #people li {
+      display: inline-block;
+      vertical-align: top;
+      padding: 5px;
+      background-color: gray;
+      color: white;
+      line-height: 1;
+    }
+    #people span {
+      vertical-align: middle;
+      font-size: 13px;
+      font-style: normal;
+    }
+    #people i {
+      vertical-align: middle;
+      font-size: 11px;
+      font-weight: bold;
+      font-style: normal;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="startsModule">
+    <script id="stats-tmpl" type="text/template">
+      <span>Cantidad: {{people}}</span>
+    </script>
+  </div>
+
+  <div id="peopleModule">
+    <h1>People</h1>
+    
+    <input type="text" name="name" id="name" placeholder="name">
+    <button id="addPerson">Add Person</button>
+    
+    <div id="people">
+      <script id="people-tmpl" type="text/template">
+        <ul>
+          {{#people}}
+            <li>
+              <span>{{.}}</span>
+              <i class="del">X</i>
+            </li>
+          {{/people}}
+          </ul>
+      </script>
+    </div>
+  </div>
+  <!-- Libs -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/mustache.min.js"></script>
+
+  <!-- Build -->
+  <script src="js/main.js"></script>
+</body>
+</html>

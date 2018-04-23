@@ -5,12 +5,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Estandart modular</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+  <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
   
 </head>
-<body class="home">
+<body class="people">
+  <div data-js="startsModule">
+    <script data-js="statsTmpl" type="text/template">
+      <span>Cantidad: {{people}}</span>
+    </script>
+  </div>
+
+  <div data-js="peopleModule">
+    <h1>People</h1>
   
+    <input type="text" name="name" data-js="name" placeholder="name">
+    <button data-js="personAdd">Add Person</button>
+  
+    <div data-js="people" class="people">
+      <script data-js="peopleTmpl" type="text/template">
+        <ul>
+          {{#people}}
+            <li>
+              <span>{{name}}</span>
+              <i class="del" data-js="del" data-id="{{id}}">X</i>
+            </li>
+          {{/people}}
+          </ul>
+        </script>
+    </div>
+  </div>
+
+  <!-- Libs -->
   <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/mustache.min.js"></script>
+
+  <!-- Build -->
   <script src="js/main.js"></script>
 </body>
 </html>
